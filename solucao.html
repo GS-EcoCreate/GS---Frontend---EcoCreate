@@ -3,23 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Global Solution 2025 – Solução</title>
+  <title>Global Solution 2025 - Registro</title>
+
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;400;500&display=swap"
-    rel="stylesheet"/>
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <header class="navbar">
     <div class="container">
-      <div class="logo">Global Solution 2025</div>
+      <div class="logo-wrapper">
+      <img src="images/EcoCreate (1).png" alt="Logo Global Solution" class="logo-img" />
+      <span class="logo-text">Global Solution 2025</span>
+    </div>
       <nav>
         <ul class="nav-links">
           <li><a href="index.html">Início</a></li>
           <li><a href="integrantes.html">Integrantes</a></li>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="contato.html">Contato</a></li>
-          <li><a href="solucao.html" class="active">Solução</a></li>
+          <li><a href="solucao.html" class="active">Registro</a></li>
         </ul>
       </nav>
     </div>
@@ -28,7 +33,7 @@
   <main class="content">
     <section class="register-disaster">
       <div class="container">
-        <h1>Registrar Novo Desastre</h1>
+        <h1>Registro de Desastre</h1>
         <form id="disaster-form" novalidate>
           <div class="form-group">
             <label for="tipo">Tipo de Desastre</label>
@@ -42,18 +47,29 @@
             </select>
             <span class="error-message" id="erro-tipo"></span>
           </div>
+
           <div class="form-group">
             <label for="descricao">Descrição</label>
             <textarea id="descricao" name="descricao" rows="4" required></textarea>
             <span class="error-message" id="erro-descricao"></span>
           </div>
+
           <div class="form-group">
             <label for="urgencia">Nível de Urgência (1 a 10)</label>
             <input type="number" id="urgencia" name="urgencia" min="1" max="10" required />
             <span class="error-message" id="erro-urgencia"></span>
           </div>
-          <button type="submit" class="btn-primary">Cadastrar</button>
-          <button type="button" id="ver-lista" class="btn-secondary">Ver Lista de Desastres</button>
+
+          <div class="form-group">
+            <label for="localizacao">Localização (Cidade/Estado)</label>
+            <input type="text" id="localizacao" name="localizacao" placeholder="Ex: São Paulo, SP" required />
+            <span class="error-message" id="erro-localizacao"></span>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">Cadastrar</button>
+            <button type="button" id="ver-lista" class="btn-secondary">Ver Lista de Desastres</button>
+          </div>
         </form>
         <div id="sucesso-disaster" class="success-message"></div>
       </div>
@@ -62,7 +78,7 @@
 
   <footer class="footer">
     <div class="container">
-      <p>© 2025 Global Solution - EcoCreate - Todos os direitos reservados.</p>
+      <p>© 2025 Global Solution – EcoCreate - Todos os direitos reservados.</p>
     </div>
   </footer>
 
