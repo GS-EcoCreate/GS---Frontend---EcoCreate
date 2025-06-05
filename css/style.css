@@ -1,0 +1,404 @@
+/* -------------------------------------------------------------------
+   Reset básico e estilos globais
+   ------------------------------------------------------------------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+/* -------------------------------------------------------------------
+   Navbar
+   ------------------------------------------------------------------- */
+
+.navbar {
+  background-color: #006d77;
+  color: #fff;
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.navbar nav ul li {
+  margin-left: 20px;
+}
+
+.navbar nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+  border-radius: 4px;
+}
+
+.navbar nav ul li a:hover,
+.navbar nav ul li a.active {
+  background-color: #83c5be;
+  color: #023e3e;
+}
+
+/* -------------------------------------------------------------------
+   Botões
+   ------------------------------------------------------------------- */
+
+.btn-primary {
+  display: inline-block;
+  background-color: #0077b6;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #023e8a;
+}
+
+.btn-secondary {
+  display: inline-block;
+  background-color: #83c5be;
+  color: #023e3e;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 5px 5px 15px 0;
+  transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #006d77;
+  color: #fff;
+}
+
+/* -------------------------------------------------------------------
+   Seções principais
+   ------------------------------------------------------------------- */
+
+.intro-home {
+  text-align: center;
+  padding: 80px 0;
+  background-color: #edf6f9;
+}
+
+.intro-home h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.intro-home p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+/* -------------------------------------------------------------------
+   Team Grid (Integrantes)
+   ------------------------------------------------------------------- */
+
+.team {
+  padding: 40px 0;
+  background-color: #fff;
+}
+
+.team h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.team-member {
+  background-color: #f1f1f1;
+  padding: 20px;
+  border-radius: 8px;
+  width: 260px;
+  text-align: center;
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.team-member h2 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.team-member p {
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.team-member a {
+  color: #0077b6;
+  text-decoration: none;
+}
+
+.team-member a:hover {
+  text-decoration: underline;
+}
+
+/* -------------------------------------------------------------------
+   FAQ
+   ------------------------------------------------------------------- */
+
+.faq {
+  padding: 40px 0;
+  background-color: #fff;
+}
+
+.faq h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.faq-item {
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  padding: 15px 20px;
+  background-color: #0077b6;
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.faq-answer {
+  display: none;
+  padding: 15px 20px;
+  background-color: #fff;
+  color: #333;
+  border-top: 1px solid #ccc;
+}
+
+.faq-answer p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* -------------------------------------------------------------------
+   Contato
+   ------------------------------------------------------------------- */
+
+.contact {
+  padding: 40px 0;
+  background-color: #edf6f9;
+}
+
+.contact h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.error-message {
+  color: #d00000;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  display: block;
+  min-height: 18px;
+}
+
+.success-message {
+  margin-top: 15px;
+  color: #007700;
+  font-size: 1rem;
+}
+
+/* -------------------------------------------------------------------
+   Formulário de Registro de Desastre (Solução)
+   ------------------------------------------------------------------- */
+
+.register-disaster {
+  padding: 40px 0;
+  background-color: #fff;
+}
+
+.register-disaster h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.register-disaster .form-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.register-disaster .form-group input,
+.register-disaster .form-group textarea,
+.register-disaster .form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.register-disaster .error-message {
+  color: #d00000;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  min-height: 18px;
+}
+
+#sucesso-disaster {
+  margin-top: 15px;
+  color: #007700;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* -------------------------------------------------------------------
+   Lista de Desastres
+   ------------------------------------------------------------------- */
+
+.disaster-list {
+  padding: 40px 0;
+  background-color: #edf6f9;
+}
+
+.disaster-list h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sort-buttons {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#lista-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+table th,
+table td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: left;
+}
+
+table th {
+  background-color: #0077b6;
+  color: #fff;
+}
+
+table tr:nth-child(even) {
+  background-color: #f1f1f1;
+}
+
+/* -------------------------------------------------------------------
+   Responsividade
+   ------------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .navbar nav ul {
+    flex-direction: column;
+  }
+  .navbar nav ul li {
+    margin: 10px 0;
+  }
+  .team-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .intro-home h1 {
+    font-size: 2rem;
+  }
+  .intro-home p {
+    font-size: 1rem;
+  }
+  table th,
+  table td {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+  .sort-buttons button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
