@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* -------------------------------------------------------------------
-   1. Funcionalidade FAQ (expandir/ocultar resposta)
-   ------------------------------------------------------------------- */
+Funcionalidade FAQ (expandir/ocultar resposta)
+---------------------------------------------------------------------- */
 function ativarFAQ() {
   const perguntas = document.querySelectorAll(".faq-question");
   perguntas.forEach((botao) => {
@@ -33,8 +33,8 @@ function ativarFAQ() {
 }
 
 /* -------------------------------------------------------------------
-   2. Validação do formulário de Contato
-   ------------------------------------------------------------------- */
+Validação do formulário de Contato
+---------------------------------------------------------------------- */
 function validarContatoForm() {
   const formContato = document.getElementById("contact-form");
   if (!formContato) return;
@@ -83,8 +83,8 @@ function validarContatoForm() {
 }
 
 /* -------------------------------------------------------------------
-   3. Validação do formulário de Registro de Desastre (solucao.html)
-   ------------------------------------------------------------------- */
+Validação do formulário de Registro de Desastre (solucao.html)
+---------------------------------------------------------------------- */
 function validarDisasterForm() {
   const formDisaster = document.getElementById("disaster-form");
   if (!formDisaster) return;
@@ -151,8 +151,8 @@ function validarDisasterForm() {
 }
 
 /* -------------------------------------------------------------------
-   4. Funções de manipulação de armazenamento local (localStorage)
-   ------------------------------------------------------------------- */
+Funções de manipulação de armazenamento local (localStorage)
+---------------------------------------------------------------------- */
 function salvarDesastre(obj) {
   const lista = JSON.parse(localStorage.getItem("desastres")) || [];
   lista.push(obj);
@@ -164,8 +164,8 @@ function obterDesastres() {
 }
 
 /* -------------------------------------------------------------------
-   5. Carregamento e renderização da lista de desastres (lista.html)
-   ------------------------------------------------------------------- */
+Carregamento e renderização da lista de desastres (lista.html)
+---------------------------------------------------------------------- */
 function carregarListaDesastres() {
   const container = document.getElementById("lista-container");
   if (!container) return;
@@ -185,8 +185,8 @@ function carregarListaDesastres() {
 }
 
 /* -------------------------------------------------------------------
-   6. Construção da tabela de desastres 
-   ------------------------------------------------------------------- */
+Construção da tabela de desastres 
+---------------------------------------------------------------------- */
 function montarTabela(container, desastres) {
   // Limpa conteúdo
   container.innerHTML = "";
@@ -234,8 +234,8 @@ function montarTabela(container, desastres) {
 }
 
 /* -------------------------------------------------------------------
-   7. Botões de ordenação (lista.html)
-   ------------------------------------------------------------------- */
+Botões de ordenação (lista.html)
+---------------------------------------------------------------------- */
 function configurarBotoesLista() {
   const botaoUrg = document.getElementById("sort-urgencia");
   const botaoData = document.getElementById("sort-data");
@@ -268,8 +268,8 @@ function configurarBotoesLista() {
 }
 
 /* -------------------------------------------------------------------
-   8. Funções utilitárias para exibir/limpar erros
-   ------------------------------------------------------------------- */
+Funções utilitárias para exibir/limpar erros
+---------------------------------------------------------------------- */
 function exibirErro(idSpan, mensagem) {
   const span = document.getElementById(idSpan);
   if (span) {
@@ -285,8 +285,8 @@ function limparErro(idSpan) {
 }
 
 /* -------------------------------------------------------------------
-   9. Validação de e-mail simples (regex básica)
-   ------------------------------------------------------------------- */
+Validação de e-mail simples (regex básica)
+---------------------------------------------------------------------- */
 function validarEmail(email) {
   const re = /\S+@\S+\.\S+/;
   return re.test(email);
