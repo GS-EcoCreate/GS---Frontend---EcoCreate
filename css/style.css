@@ -1,32 +1,694 @@
-/* -------------------------------------------------------------------
+/* =============================================================================
    Reset básico e estilos globais
-   ------------------------------------------------------------------- */
-
+   ============================================================================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html,
 body {
-  font-family: Arial, sans-serif;
+  height: 100%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
   line-height: 1.6;
   background-color: #f8f9fa;
   color: #333;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Dark Mode Global */
-.modo-escuro {
-  background-color: #1a1a1a;
-  color: #e0e0e0;
+/* -----------------------------------------------------------------------------
+   Helper para que o main (.content) ocupe o espaço disponível, empurrando o footer
+   para o final da tela (sticky footer)
+   --------------------------------------------------------------------------- */
+.content {
+  flex: 1;
 }
 
+/* -----------------------------------------------------------------------------
+   Container centralizado
+   --------------------------------------------------------------------------- */
 .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px 0;
+}
+
+/* =============================================================================
+   Navbar (com logo à esquerda)
+   ============================================================================= */
+.navbar {
+  background-color: #006d77;
+  color: #fff;
+}
+
+.navbar .container {
+  display: flex;
+  align-items: left;
+  justify-content: space-between;
+}
+
+/* ----------------------------------------
+   Wrapper do logo + texto
+   ---------------------------------------- */
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+/* Imagem do logo */
+.logo-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 12px;
+  border-radius: 4px;
+}
+
+/* Texto do logo ao lado da imagem */
+.logo-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #fff;
+  font-style: italic;
+}
+
+/* ----------------------------------------
+   Menu de navegação
+   ---------------------------------------- */
+.navbar nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.navbar nav ul li {
+  margin-left: 20px;
+}
+
+.navbar nav ul li a {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+.navbar nav ul li a:hover,
+.navbar nav ul li a.active {
+  background-color: #83c5be;
+  color: #023e3e;
+}
+
+/* =============================================================================
+   Botões (estilos globais)
+   ============================================================================= */
+
+   /* Botão primário */
+.btn-primary {
+  background: #919191;
+  border: none;
+  padding: 10px 20px;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 600;
+  width: 280px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transform: skew(-21deg);
+}
+
+span {
+  display: inline-block;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 100%;
+  left: 0;
+  background: rgb(20, 20, 20);
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.5s;
+}
+
+.btn-primary:hover {
+  color: #fff;
+}
+
+.btn-primary:hover::before {
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+
+.btn-index {
+  padding: 10px 20px;
+  text-transform: uppercase;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: 500;
+  color: #000000;
+  text-shadow: none;
+  background: transparent;
+  cursor: pointer;
+  box-shadow: transparent;
+  border: 1px solid #00000080;
+  transition: 0.5s ease;
+  user-select: none;
+  text-decoration: none;
+}
+
+.btn-index:hover,
+:focus {
+  color: #000000;
+  background: #008cff;
+  border: 1px solid #008cff;
+  text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
+  box-shadow: 0 0 5px #008cff, 0 0 20px #008cff, 0 0 50px #008cff,
+    0 0 100px #008cff;
+}
+
+
+/* Botão secundário */
+.btn-secondary {
+  display: inline-block;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  background-color: #83c5be;
+  color: #023e3e;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #006d77;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* Botão terciário*/
+.btn-tertiary {
+  background: #919191;
+  border: none;
+  padding: 10px 20px;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 600;
+  width: 280px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transform: skew(-21deg);
+}
+
+span {
+  display: inline-block;
+}
+
+.btn-tertiary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 100%;
+  left: 0;
+  background: rgb(20, 20, 20);
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.5s;
+}
+
+.btn-tertiary:hover {
+  color: #fff;
+}
+
+.btn-tertiary:hover::before {
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+
+/* Botão “clean” (links sem fundo) */
+.btn-link {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  background: none;
+  border: none;
+  color: #0077b6;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  padding: 0;
+}
+
+.btn-link:hover {
+  color: #023e8a;
+  text-decoration: underline;
+}
+
+/* =============================================================================
+   Footer (Sticky no rodapé)
+   ============================================================================= */
+.footer {
+  background-color: #023e3e;
+  color: #fff;
+  text-align: center;
+  padding: 15px 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.95rem;
+}
+
+/* =============================================================================
+   Seções principais (layouts específicos)
+   ============================================================================= */
+/* --------------------------------------
+   Intro Home (página inicial)
+   -------------------------------------- */
+.intro-home {
+  text-align: center;
+  padding: 80px 0;
+  background-color: #edf6f9;
+}
+
+.intro-home h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #055c5c;
+}
+
+.intro-home p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  color: #7c7b7b;
+}
+
+/* =============================================================================
+   Team Grid (Integrantes)
+   ============================================================================= */
+.team {
+  padding: 40px 0;
+  background-color: #fff;
+}
+
+.team h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #055c5c;
+}
+
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.team-member {
+  background-color: #f1f1f1;
+  padding: 25px;
+  border-radius: 8px;
+  width: 260px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.team-member h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #023e3e;
+}
+
+.team-member p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.team-member a {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  color: #0077b6;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.team-member a:hover {
+  color: #023e8a;
+  text-decoration: underline;
+}
+
+/* =============================================================================
+   FAQ (Perguntas Frequentes)
+   ============================================================================= */
+.faq {
+  padding: 50px 0;
+  background-color: #fff;
+}
+
+.faq h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 35px;
+  color: #055c5c;
+  font-size: 2.8rem;
+}
+
+.faq-item {
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  padding: 18px 24px;
+  background-color: #0077b6;
+  color: #fff;
+  border: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+  background-color: #023e8a;
+}
+
+.faq-answer {
+  display: none;
+  padding: 18px 24px;
+  background-color: #fff;
+  color: #333;
+  border-top: 1px solid #ccc;
+}
+
+.faq-answer p {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* =============================================================================
+   Contato
+   ============================================================================= */
+.contact {
+  padding: 40px 0;
+  background-color: #edf6f9;
+}
+
+.contact h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #055c5c;
+  font-size: 2.5rem;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #0077b6;
+}
+
+.error-message {
+  color: #d00000;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.95rem;
+  margin-top: 5px;
+  min-height: 18px;
+}
+
+.success-message {
+  margin-top: 15px;
+  color: #007700;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+}
+
+/* =============================================================================
+   Registro de Desastre (registro.html)
+   ============================================================================= */
+.register-disaster {
+  padding: 50px 0;
+  background-color: #fff;
+}
+
+.register-disaster h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 35px;
+  color: #055c5c;
+  font-size: 2.8rem;
+}
+
+.register-disaster .form-group label {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: block;
+  font-size: 1.1rem;
+}
+
+.register-disaster .form-group input,
+.register-disaster .form-group textarea,
+.register-disaster .form-group select {
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.register-disaster .form-group input:focus,
+.register-disaster .form-group textarea:focus,
+.register-disaster .form-group select:focus {
+  outline: none;
+  border-color: #0077b6;
+}
+
+.register-disaster .error-message {
+  color: #d00000;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.95rem;
+  margin-top: 5px;
+  min-height: 18px;
+}
+
+#sucesso-desastre {
+  margin-top: 18px;
+  color: #007700;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.05rem;
+  text-align: center;
+}
+
+/* =============================================================================
+   Lista de Desastres
+   ============================================================================= */
+.disaster-list {
+  padding: 40px 0;
+  background-color: #edf6f9;
+}
+
+.disaster-list h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #055c5c;
+  font-size: 2.5rem;
+}
+
+.sort-buttons {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sort-buttons button {
+  margin: 0 5px 15px 5px;
+}
+
+#lista-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+table th,
+table td {
+  border: 1px solid #ccc;
+  padding: 14px;
+  text-align: left;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.95rem;
+}
+
+table th {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  background-color: #0077b6;
+  color: #fff;
+}
+
+table tr:nth-child(even) {
+  background-color: #f1f1f1;
+}
+
+/* =============================================================================
+   Responsividade
+   ============================================================================= */
+@media (max-width: 992px) {
+  .navbar nav ul {
+    flex-direction: column;
+  }
+  .navbar nav ul li {
+    margin: 10px 0;
+  }
+  .team-grid {
+    flex-direction: column;
+    align-items: right;
+  }
+  .intro-home h1 {
+    font-size: 2rem;
+    color: #055c5c;
+  }
+  .intro-home p {
+    font-size: 1rem;
+    color: #ffffff;
+  }
+  table th,
+  table td {
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+  .sort-buttons button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  /* Ajustes para registro em telas muito pequenas */
+  .register-disaster h1 {
+    font-size: 2.4rem;
+    color: #e0e0e0;
+  }
+  .register-disaster .form-group label {
+    font-size: 1rem;
+  }
+  .register-disaster .form-group input,
+  .register-disaster .form-group textarea,
+  .register-disaster .form-group select {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  /* Ajustes para FAQ em telas muito pequenas */
+  .faq h1 {
+    font-size: 2.4rem;
+  }
+  .faq-question {
+    font-size: 1.1rem;
+    padding: 16px 20px;
+  }
+  .faq-answer p {
+    font-size: 1rem;
+  }
+}
+
+/* Dark Mode Global */
+.modo-escuro {
+  background-color: #353434;
+  color: #e0e0e0;
 }
 
 /* Dark Mode Toggle Button */
@@ -49,7 +711,7 @@ body {
 
 .modo-escuro .modo-escuro-toggle {
   background-color: #ffd60a;
-  color: #1a1a1a;
+  color: #ffffff;
 }
 
 .modo-escuro-toggle:hover {
@@ -57,66 +719,14 @@ body {
 }
 
 /* Footer */
-footer {
-  background-color: #006d77;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-  transition: background-color 0.3s ease;
-}
-
 .modo-escuro footer {
-  background-color: #003f48;
+  background-color: #f8f8f8;
 }
 
-/* -------------------------------------------------------------------
-   Navbar
-   ------------------------------------------------------------------- */
-
-.navbar {
-  background-color: #006d77;
-  color: #fff;
-  transition: background-color 0.3s ease;
-}
-
+/* Navbar */
 .modo-escuro .navbar {
-  background-color: #2c2c2c;
+  background-color: #353434;
   color: #fff;
-}
-
-.navbar .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.navbar .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.navbar nav ul {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.navbar nav ul li {
-  margin-left: 20px;
-}
-
-.navbar nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  padding: 10px;
-  transition: all 0.3s ease;
-  border-radius: 4px;
-}
-
-.navbar nav ul li a:hover,
-.navbar nav ul li a.active {
-  background-color: #83c5be;
-  color: #023e3e;
 }
 
 .modo-escuro .navbar nav ul li a:hover,
@@ -125,53 +735,13 @@ footer {
   color: #fff;
 }
 
-/* -------------------------------------------------------------------
-   Botões
-   ------------------------------------------------------------------- */
-
-.btn-primary {
-  display: inline-block;
-  background-color: #0077b6;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  text-decoration: none;
-  margin-top: 10px;
-  transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-  background-color: #023e8a;
-  transform: translateY(-1px);
-}
-
+/* Botões */
 .modo-escuro .btn-primary {
   background-color: #005b90;
 }
 
 .modo-escuro .btn-primary:hover {
   background-color: #003d61;
-}
-
-.btn-secondary {
-  display: inline-block;
-  background-color: #83c5be;
-  color: #023e3e;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin: 5px 5px 15px 0;
-  transition: all 0.3s ease;
-  text-decoration: none;
-}
-
-.btn-secondary:hover {
-  background-color: #006d77;
-  color: #fff;
-  transform: translateY(-1px);
 }
 
 .modo-escuro .btn-secondary {
@@ -183,75 +753,69 @@ footer {
   background-color: #2d3e28;
 }
 
-/* -------------------------------------------------------------------
-   Seções principais
-   ------------------------------------------------------------------- */
-
-.intro-home {
-  text-align: center;
-  padding: 80px 0;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  transition: background 0.3s ease;
+.modo-escuro .btn-tertiary {
+  background: #000000;
+  border: none;
+  padding: 10px 20px;
+  display: inline-block;
+  font-size: 15px;
+  color: #ffffff;
+  font-weight: 600;
+  width: 280px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transform: skew(-21deg);
 }
 
+.modo-escuro span {
+  display: inline-block;
+}
+
+.modo-escuro .btn-tertiary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 100%;
+  left: 0;
+  background: #005b90;
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.5s;
+}
+
+.modo-escuro .btn-tertiary:hover {
+  color: #fff;
+}
+
+.modo-escuro .btn-tertiary:hover::before {
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+
+.modo-escuro .btn-index {
+  padding: 10px 20px;
+  text-transform: uppercase;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+/* Seções principais */
 .modo-escuro .intro-home {
   background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+  color: #ffffff;
 }
 
-.intro-home h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-.intro-home p {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-  opacity: 0.8;
-}
-
-/* -------------------------------------------------------------------
-   Team Grid (Integrantes)
-   ------------------------------------------------------------------- */
-
-.team {
-  padding: 40px 0;
-  background-color: #fff;
-  transition: background-color 0.3s ease;
-}
-
+/* Team Grid (Integrantes) */
 .modo-escuro .team {
-  background-color: #252525;
-}
-
-.team h1 {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.team-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-}
-
-.team-member {
-  background-color: #f1f1f1;
-  padding: 20px;
-  border-radius: 8px;
-  width: 260px;
-  text-align: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.team-member:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  background-color: #1f1f1f;
 }
 
 .modo-escuro .team-member {
-  background-color: #3a3a3a;
+  background-color: #888787;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -259,40 +823,8 @@ footer {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
 }
 
-.team-member img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 15px;
-  border: 3px solid #006d77;
-  transition: border-color 0.3s ease;
-}
-
 .modo-escuro .team-member img {
   border-color: #83c5be;
-}
-
-.team-member h2 {
-  font-size: 1.2rem;
-  margin-bottom: 5px;
-}
-
-.team-member p {
-  font-size: 0.95rem;
-  margin-bottom: 8px;
-  opacity: 0.8;
-}
-
-.team-member a {
-  color: #0077b6;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.team-member a:hover {
-  text-decoration: underline;
-  color: #023e8a;
 }
 
 .modo-escuro .team-member a {
@@ -303,37 +835,9 @@ footer {
   color: #a8dadc;
 }
 
-/* -------------------------------------------------------------------
-   FAQ
-   ------------------------------------------------------------------- */
-
-.faq {
-  padding: 40px 0;
-  background-color: #fff;
-  transition: background-color 0.3s ease;
-}
-
+/* FAQ */
 .modo-escuro .faq {
   background-color: #1f1f1f;
-}
-
-.faq h1 {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.faq-item {
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.faq-item:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .modo-escuro .faq-item {
@@ -346,37 +850,6 @@ footer {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-.faq-question {
-  width: 100%;
-  text-align: left;
-  padding: 15px 20px;
-  background-color: #0077b6;
-  color: #fff;
-  border: none;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  position: relative;
-}
-
-.faq-question:hover {
-  background-color: #023e8a;
-}
-
-.faq-question::after {
-  content: '+';
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.2rem;
-  transition: transform 0.3s ease;
-}
-
-.faq-question.active::after {
-  transform: translateY(-50%) rotate(45deg);
-}
-
 .modo-escuro .faq-question {
   background-color: #005b90;
 }
@@ -385,74 +858,15 @@ footer {
   background-color: #003d61;
 }
 
-.faq-answer {
-  display: none;
-  padding: 15px 20px;
-  background-color: #fff;
-  color: #333;
-  border-top: 1px solid #ccc;
-  transition: all 0.3s ease;
-}
-
 .modo-escuro .faq-answer {
   background-color: #3a3a3a;
   color: #e0e0e0;
   border-top-color: #555;
 }
 
-.faq-answer p {
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-/* -------------------------------------------------------------------
-   Contato
-   ------------------------------------------------------------------- */
-
-.contact {
-  padding: 40px 0;
-  background-color: #edf6f9;
-  transition: background-color 0.3s ease;
-}
-
+/* Contato */
 .modo-escuro .contact {
-  background-color: #262626;
-}
-
-.contact h1 {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-  transition: color 0.3s ease;
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-  width: 100%;
-  padding: 12px;
-  border: 2px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  background-color: #fff;
-}
-
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-  outline: none;
-  border-color: #0077b6;
-  box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.1);
+  background-color: #000000;
 }
 
 .modo-escuro .form-group input,
@@ -470,26 +884,8 @@ footer {
   box-shadow: 0 0 0 3px rgba(131, 197, 190, 0.1);
 }
 
-.error-message {
-  color: #d00000;
-  font-size: 0.9rem;
-  margin-top: 5px;
-  display: block;
-  min-height: 18px;
-}
-
 .modo-escuro .error-message {
   color: #ff6b6b;
-}
-
-.success-message {
-  margin-top: 15px;
-  color: #007700;
-  font-size: 1rem;
-  padding: 10px;
-  background-color: #d4edda;
-  border: 1px solid #c3e6cb;
-  border-radius: 4px;
 }
 
 .modo-escuro .success-message {
@@ -498,49 +894,9 @@ footer {
   border-color: #3d7c4c;
 }
 
-/* -------------------------------------------------------------------
-   Formulário de Registro de Desastre (Solução)
-   ------------------------------------------------------------------- */
-
-.register-disaster {
-  padding: 40px 0;
-  background-color: #fff;
-  transition: background-color 0.3s ease;
-}
-
+/* Formulário de Registro de Desastre (Solução) */
 .modo-escuro .register-disaster {
-  background-color: #1f1f1f;
-}
-
-.register-disaster h1 {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.register-disaster .form-group label {
-  font-weight: bold;
-  margin-bottom: 5px;
-  display: block;
-}
-
-.register-disaster .form-group input,
-.register-disaster .form-group textarea,
-.register-disaster .form-group select {
-  width: 100%;
-  padding: 12px;
-  border: 2px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  background-color: #fff;
-}
-
-.register-disaster .form-group input:focus,
-.register-disaster .form-group textarea:focus,
-.register-disaster .form-group select:focus {
-  outline: none;
-  border-color: #0077b6;
-  box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.1);
+  background-color: #000000;
 }
 
 .modo-escuro .register-disaster .form-group input,
@@ -558,26 +914,8 @@ footer {
   box-shadow: 0 0 0 3px rgba(131, 197, 190, 0.1);
 }
 
-.register-disaster .error-message {
-  color: #d00000;
-  font-size: 0.9rem;
-  margin-top: 5px;
-  min-height: 18px;
-}
-
 .modo-escuro .register-disaster .error-message {
   color: #ff6b6b;
-}
-
-#sucesso-disaster {
-  margin-top: 15px;
-  color: #007700;
-  font-size: 1rem;
-  text-align: center;
-  padding: 10px;
-  background-color: #d4edda;
-  border: 1px solid #c3e6cb;
-  border-radius: 4px;
 }
 
 .modo-escuro #sucesso-disaster {
@@ -586,36 +924,9 @@ footer {
   border-color: #3d7c4c;
 }
 
-/* -------------------------------------------------------------------
-   Lista de Desastres
-   ------------------------------------------------------------------- */
-
-.disaster-list {
-  padding: 40px 0;
-  background-color: #edf6f9;
-  transition: background-color 0.3s ease;
-}
-
+/* Lista de Desastres */
 .modo-escuro .disaster-list {
   background-color: #262626;
-}
-
-.disaster-list h1 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.sort-buttons {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-#lista-container {
-  overflow-x: auto;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
 }
 
 .modo-escuro #lista-container {
@@ -623,41 +934,13 @@ footer {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 30px;
-}
-
-table th,
-table td {
-  border: 1px solid #ccc;
-  padding: 12px;
-  text-align: left;
-  transition: background-color 0.3s ease;
-}
-
 .modo-escuro table th,
 .modo-escuro table td {
   border-color: #555;
 }
 
-table th {
-  background-color: #0077b6;
-  color: #fff;
-  font-weight: bold;
-}
-
 .modo-escuro table th {
   background-color: #005b90;
-}
-
-table tr:nth-child(even) {
-  background-color: #f8f9fa;
-}
-
-table tr:hover {
-  background-color: #e9ecef;
 }
 
 .modo-escuro table tr:nth-child(even) {
@@ -671,38 +954,8 @@ table tr:hover {
 .modo-escuro table td {
   color: #e0e0e0;
 }
-/* -------------------------------------------------------------------
-   Responsividade
-   ------------------------------------------------------------------- */
 
 @media (max-width: 768px) {
-  .navbar nav ul {
-    flex-direction: column;
-  }
-  
-  .navbar nav ul li {
-    margin: 10px 0;
-  }
-  
-  .team-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .intro-home h1 {
-    font-size: 2rem;
-  }
-  
-  .intro-home p {
-    font-size: 1rem;
-  }
-  
-  table th,
-  table td {
-    font-size: 0.9rem;
-    padding: 8px;
-  }
-  
   .modo-escuro-toggle {
     top: 10px;
     right: 10px;
@@ -710,27 +963,95 @@ table tr:hover {
     height: 45px;
   }
 }
+/* =============================================================================
+   Modo Escuro (Dark Mode)
+   ============================================================================= */
+.switch {
+  display: block;
+  --width-of-switch: 3.5em;
+  --height-of-switch: 2em;
+  --size-of-icon: 1.4em;
+  --slider-offset: 0.3em;
+  position: relative;
+  width: var(--width-of-switch);
+  height: var(--height-of-switch);
+}
 
-@media (max-width: 480px) {
-  .btn-primary,
-  .btn-secondary {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  
-  .sort-buttons button {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-  
-  .team-member {
-    width: 100%;
-    max-width: 300px;
-  }
-  
-  .container {
-    width: 95%;
-    padding: 15px 0;
-  }
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f4f4f5;
+  transition: .4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: var(--size-of-icon,1.4em);
+  width: var(--size-of-icon,1.4em);
+  border-radius: 20px;
+  left: var(--slider-offset,0.3em);
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(40deg,#ff0080,#ff8c00 70%);
+  ;
+ transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #303136;
+}
+
+input:checked + .slider:before {
+  left: calc(100% - (var(--size-of-icon,1.4em) + var(--slider-offset,0.3em)));
+  background: #303136;
+  box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
+}
+
+body.modo-escuro {
+  background-color: #353434;
+  color: #f0f0f0;
+}
+
+body.modo-escuro header,
+body.modo-escuro .container {
+  background-color: #353434;
+  border-color: #ffffff;
+}
+
+body.modo-escuro footer {
+  background-color: #000000;
+  color: #f0f0f0;
+}
+
+body.modo-escuro containerfooter {
+  background-color: #000000;
+  color: #f0f0f0;
+}
+
+body.modo-escuro p2 {
+  color: #ffffff;
+  background-color: #000000;
+}
+
+body.modo-escuro a {
+  color: #bb86fc;
+}
+
+/* Caso haja cards, botões ou outros componentes: */
+body.modo-escuro .card,
+body.modo-escuro button {
+  background-color: #353434;
+  border-color: #333;
 }
