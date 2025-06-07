@@ -291,3 +291,14 @@ function validarEmail(email) {
   const re = /\S+@\S+\.\S+/;
   return re.test(email);
 }
+/*--------------------------------------------------------------------
+Função para alternar entre modo claro e escuro
+---------------------------------------------------------------------- */
+
+document.getElementById("mudarModo").addEventListener("click", function() {
+    document.body.classList.toggle("modo-escuro");
+});
+
+if (localStorage.getItem("modoEscuro") === "true") {
+    document.body.classList.add("dark-mode");
+}
